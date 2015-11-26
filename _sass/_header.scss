@@ -1,0 +1,12 @@
+.site-header {
+  background: $brand-color;
+  height: 4.6875rem;
+
+  h1 {
+    font-family: $menu-font-family;
+    font-size: $title-font-size;
+    font-weight: 300;
+    text-align: center;
+    padding: 0.8rem 0;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal/Professional Portfolio Website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skiitr/skiitr.github.io.git"
+  },
+  "keywords": [
+    "pcb",
+    "designer",
+    "front-end",
+    "web",
+    "developer",
+    "mechanical",
+    "engineer",
+    "melbourne",
+    "florida"
+  ],
+  "author": "Dan Gallagher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skiitr/skiitr.github.io/issues"
+  },
+  "homepage": "https://github.com/Skiitr/skiitr.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^1.3.7",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "1.0.0",
+    "gulp-sass": "^2.1.0"
+  }
+}

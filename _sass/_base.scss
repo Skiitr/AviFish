@@ -1,0 +1,49 @@
+//Reset some basic elements
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+html {
+    background-color: #efefef;
+}
+
+//Basic styling
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    min-width: 300px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//Images
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+
+//Links
+a, a:link, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: $text-color;
+
+}
