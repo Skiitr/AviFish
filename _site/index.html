@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AviFish</title>
+  <meta name="description" content="This application is created to generate links by reaching out to a Perforce Web server grabbing the files from a specified changelist and printing out the result as a list so  links can be created to all the files on that changelist at that changelist version of the file.
+">
+
+  <meta property="og:title" content="Avidyne Babel Fish" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.slylion.com/AviFish/index.html" />
+  <meta property="og:image" content="" />
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,500,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="main.css">
+  <link rel="canonical" href="http://www.slylion.com/AviFish/">
+  <link rel="alternate" type="application/rss+xml" title="AviFish" href="http://www.slylion.com/AviFish/feed.xml" />
+  <script type="text/javascript" src="app.js"></script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <h1>AviFish</h1>
+
+</header>
+
+
+    <div class="page-content ">
+      <!-- Depot Section -->
+<section class="depot">
+  <h3 class="sectionTitle">Depot:</h3>
+  <button class="button selected" type="checkbox" id="dp-lincoln">Lincoln</button>
+  <button class="button" type="checkbox" id="dp-melbourne">Melbourne</button>
+</section>
+
+<!-- Options Section -->
+<section class="options">
+  <h3 class="sectionTitle">Options:</h3>
+  <button class="button selected" type="checkbox" id="op-text">Text</button>
+  <button class="button" type="checkbox" id="op-changelist">http:cl</button>
+  <button class="button" type="checkbox" id="op-version">http:#</button>
+</section>
+
+<!-- Changelist Section -->
+<section class="changelist">
+  <h3 class="sectionTitle">Changelist:</h3>
+  <input type="text" id="cl-input" />
+  <button class="button" id="cl-run">Run</button>
+  <button class="button" id="cl-clear">Clear</button>
+</section>
+
+<!-- Results Section -->
+<section class="results">
+  <h3 class="sectionTitle">Results:</h3>
+  <div class="rs-output">
+    <ul id="rs-results">
+
+    </ul>
+  </div>
+  <button class="button" id="rs-selectall">Select All</button>
+  <button class="button" id="rs-clear">Clear</button>
+</section>
+
+
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="copyright">
+    &copy; Dan Gallagher 2015    
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

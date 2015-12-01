@@ -54,27 +54,31 @@ window.onload = function() {
   //Build the link to fetch
   function buildUrl(changelist, repository, option) {
     var fetchUrl = repository;
-    fetchUrl += "@md=d&cd=//&c=0Jy&rc=s&pat=01046&is=y@/p4%20describe%20";
+    fetchUrl += "@md=d&cd=//&c=5a1&rc=s@/p4%20describe%20";
     fetchUrl += changelist;
-    fetchUrl += "?ac=201";
+    fetchUrl += option;
     return fetchUrl;
   }
 
   //Set the results to the Results box
   function setResults(data) {
-    resultsOutput.value("data");
+    resultsOutput.value(data);
   }
 
   //On button click collect data and output parsed data
   runButton.onclick = function() {
     
+    var depot = "";
+    var option = "";
+    var changelist = "";
+
     //Set Depot Selected
     if (lincolnButton.getAttribute("class") === "button selected") {
       console.log("Lincoln Depot Selected");
-      var repository = "http://aviapp.avidyne.com:8080/";
+      repository = "http://aviapp.avidyne.com:8080/";
     } else if (melbourneButton.getAttribute("class") === "button selected") {
       console.log("Melbourne Depot Selected");
-      var repository = "http://palmtree.avidyne.com:8080/";
+      repository = "http://palmtree.avidyne.com:8080/";
     } else {
       console.log("Errrror")
     }
@@ -82,13 +86,13 @@ window.onload = function() {
     //Set Option Selected
     if (textOptionButton.getAttribute("class") === "button selected") {
       console.log("Text Option Selected");
-      var option = "???";
+      option = "?ac=160";
     } else if (clOptionButton.getAttribute("class") === "button selected") {
       console.log("Changelist Links Option Selected");
-      var option = "???";
+      option = "?ac=201";
     } else if (verOptionButton.getAttribute("class") === "button selected") {
       console.log("Version Links Option Selected");
-      var option = "???";
+      option = "?ac=201";
     } else {
       console.log("Errrror")
     }
@@ -96,33 +100,34 @@ window.onload = function() {
     //Set Changelist Entered
     if (changelistInput != "") {
       console.log("Changelist Number: " + changelistInput.value);
-      var changelist = changelistInput.value;
+      changelist = changelistInput.value;
     } else {
       console.log("Errrror")
     }
     
-    
-    //run the buildUrl with inputs
+    //Build the url using selected options
     var xmlUrl = buildUrl(changelist, repository, option);
     console.log("The xmlUrl is " + xmlUrl);
 
-    //call the httpGetAsync to fetch the xml information
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-      if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-        console.log(xmlHttp.responseType);
-        setResults(xmlHttp.responseText);
-      }
+    function processData(data) {
+      console.dir(data);
     }
-    xmlHttp.open("GET", xmlUrl, true); // true for asynchronous
-    xmlHttp.send(null);
 
+    var request = document.createElement("script");
+    request.type = "text/javascript";
+    request.src = xmlUrl;
+    resultsOutput.appendChild(request);
+    console.log(request);
+
+
+    console.log("End of File");
+  }
     //Parse the xml data for the changed document links
 
     //Add the proper prefix and sufix to the document links
 
     //Print the document links to the page
-  }
+  
 }
 
 
