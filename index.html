@@ -5,40 +5,36 @@ layout: default
 <!-- Depot Section -->
 <section class="depot">
   <h3 class="sectionTitle">Depot:</h3>
-  <div class="button selected" id="dp-lincoln">
-    <span>Lincoln</span>
-  </div>
-  <div class="button" id="dp-melbourne">
-    <span>Melbourne</span>
-  </div>
+  <button class="button selected" type="checkbox" id="dp-lincoln">Lincoln</button>
+  <button class="button" type="checkbox" id="dp-melbourne">Melbourne</button>
+</section>
+
+<!-- Options Section -->
+<section class="options">
+  <h3 class="sectionTitle">Options:</h3>
+  <button class="button selected" type="checkbox" id="op-text">Text</button>
+  <button class="button" type="checkbox" id="op-changelist">http:cl</button>
+  <button class="button" type="checkbox" id="op-version">http:#</button>
 </section>
 
 <!-- Changelist Section -->
 <section class="changelist">
   <h3 class="sectionTitle">Changelist:</h3>
   <input type="text" id="cl-input" />
-  <div class="button" id="cl-generate">
-    <span>Generate</span>
-  </div>
-  <div class="button" id="cl-clear">
-    <span>Clear</span>
-  </div>
+  <button class="button" id="cl-run">Run</button>
+  <button class="button" id="cl-clear">Clear</button>
 </section>
 
 <!-- Results Section -->
 <section class="results">
   <h3 class="sectionTitle">Results:</h3>
   <div class="rs-output">
-    <ul class="rs-results">
+    <ul id="rs-results">
 
     </ul>
   </div>
-  <div class="button" id="rs-selectall">
-    <span>Select All</span>
-  </div>
-  <div class="button" id="rs-clear">
-    <span>Clear</span>
-  </div>
+  <button class="button" id="rs-selectall">Select All</button>
+  <button class="button" id="rs-clear">Clear</button>
 </section>
 
 
