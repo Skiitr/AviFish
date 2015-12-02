@@ -43,6 +43,7 @@ section {
   }
 
   input {
+    border: none;
     outline-style: none;
     width: 100%;
     height: 45px;
@@ -59,17 +60,23 @@ section {
     }
   }
 
-  .rs-output {
+  .bulktext {
     min-height: 100px;
     width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     background: $active-color;
     margin: 0.5rem 0;
+    padding: 0.5rem;
+    font-size: $info-font-size;
+    color: $info-text-color;
   }
+
 }
 
 .results,
-.changelist {
+.changelist,
+.inputText {
   justify-content: space-between;
 }
 

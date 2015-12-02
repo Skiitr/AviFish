@@ -15,11 +15,11 @@
   <meta property="og:url" content="http://www.slylion.com/AviFish/index.html" />
   <meta property="og:image" content="" />
 
+
   <link href='https://fonts.googleapis.com/css?family=Raleway:300,400,500,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="main.css">
   <link rel="canonical" href="http://www.slylion.com/AviFish/">
   <link rel="alternate" type="application/rss+xml" title="AviFish" href="http://www.slylion.com/AviFish/feed.xml" />
-  <script type="text/javascript" src="app.js"></script>
 </head>
 
 
@@ -52,17 +52,25 @@
 <section class="changelist">
   <h3 class="sectionTitle">Changelist:</h3>
   <input type="text" id="cl-input" />
-  <button class="button" id="cl-run">Run</button>
+  <button class="button" id="cl-open">Open</button>
   <button class="button" id="cl-clear">Clear</button>
+</section>
+
+<!-- Input Section -->
+<section class="inputText">
+  <h3 class="sectionTitle">Input Text:</h3>
+  <div contenteditable class="bulktext" id="in-inputArea">
+
+  </div>
+  <button class="button" id="in-translate">Translate</button>
+  <button class="button" id="in-clear">Clear</button>
 </section>
 
 <!-- Results Section -->
 <section class="results">
   <h3 class="sectionTitle">Results:</h3>
-  <div class="rs-output">
-    <ul id="rs-results">
+  <div class="bulktext" id="rs-results">
 
-    </ul>
   </div>
   <button class="button" id="rs-selectall">Select All</button>
   <button class="button" id="rs-clear">Clear</button>
@@ -80,6 +88,7 @@
 
 </footer>
 
+<script type="text/javascript" src="app.js"></script>
 
   </body>
 
