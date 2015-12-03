@@ -62,6 +62,7 @@ section {
 
   .bulktext,
   .resultsText {
+    border: none;
     min-height: 100px;
     width: 100%;
     max-width: 100%;
@@ -81,9 +82,9 @@ section {
 
 }
 
-.results,
-.changelist,
-.inputText {
-  justify-content: space-between;
-}
+// .results,
+// .changelist,
+// .inputText {
+//   justify-content: space-between;
+// }
 

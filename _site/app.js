@@ -9,13 +9,13 @@
 var lincolnButton = document.getElementById("dp-lincoln");
 var melbourneButton = document.getElementById("dp-melbourne");
 var openButton = document.getElementById("cl-open");
-//var clearClButton = document.getElementById("cl-clear");
+var clearClButton = document.getElementById("cl-clear");
 //var selectallButton = document.getElementById("rs-selectall");
-//var clearRsButton = document.getElementById("rs-clear");
+var clearRsButton = document.getElementById("rs-clear");
 var textOptionButton = document.getElementById("op-text");
 var xmlOptionButton = document.getElementById("op-xml");
 var translateButton = document.getElementById("in-translate");
-//var clearInButton = document.getElementById("in-clear")
+var clearInButton = document.getElementById("in-clear")
 
 //Container for the resutlt list
 var resultsList = document.createElement("ul");
@@ -43,11 +43,11 @@ function optionToggle(option) {
 //Toggles for each button:
 lincolnButton.onclick = function() {
   depotToggle(lincolnButton);
-  repository = "http://aviapp.avidyne.com:8080/";
+  deopt = "http://aviapp.avidyne.com:8080/";
 };
 melbourneButton.onclick = function() {
   depotToggle(melbourneButton);
-  repository = "http://palmtree.avidyne.com:8080/";
+  depot = "http://palmtree.avidyne.com:8080/";
 };
 textOptionButton.onclick = function() {
   optionToggle(textOptionButton);
@@ -57,20 +57,33 @@ xmlOptionButton.onclick = function() {
   optionToggle(xmlOptionButton);
   option = "?ac=201";
 };
+clearClButton.onclick = function() {
+  var changelistInput = document.getElementById("cl-input");
+  changelistInput.value = "";
+};
+clearInButton.onclick = function() {
+  var inputArea = document.getElementById("in-inputArea");
+  inputArea.value = "";
+};
+clearRsButton.onclick = function() {
+  var resultsDiv = document.getElementById("rs-results");
+  resultsList.innerHTML = "";
+  resultsDiv.innerHTML = "";
+};
 
 //Build the link to fetch
-function buildUrl(changelist, repository, option) {
+function buildUrl(clInput, repository, opSelection) {
   var fetchUrl = repository;
   fetchUrl += "@md=d&cd=//&c=&rc=s@/p4%20describe%20";
-  fetchUrl += changelist;
-  fetchUrl += option;
+  fetchUrl += clInput;
+  fetchUrl += opSelection;
   return fetchUrl;
 }
 
 //Add to results list for each item
-function addToResults(linkMeat, depot, changelist) {
+function addToResults(linkMeat, depot, clXML) {
   var itemToAdd = document.createElement("li");
-  itemToAdd.innerHTML = depot + linkMeat + "@" + changelist;
+  itemToAdd.innerHTML = depot + linkMeat + "@" + clXML;
   resultsList.appendChild(itemToAdd);
 }
 
@@ -102,13 +115,15 @@ translateButton.onclick = function() {
   //Grab the XML from the input and parse to XML
   var inputXML = $.parseXML(document.getElementById("in-inputArea").value);
   
-  //Extract the depotfiles from the XML data
-  var depotFiles = inputXML.getElementsByTagName("depotfile")
-
+  //Extract the depotfiles and changelistXML from the XML data
+  var depotFiles = inputXML.getElementsByTagName("depotfile");
+  var perforce = inputXML.getElementsByTagName("perforce");
+  var changelistXML = perforce[0].getAttributeNode("args");
+  
   //Lopp through depotFiles and pull out the link values
   for (var i = 0; i < depotFiles.length; i++) {
     var linkValue = depotFiles[i].getAttributeNode("value");
-    addToResults(linkValue.value, depot, changelist);
+    addToResults(linkValue.value, depot, changelistXML.value);
   };
 
   //Add resultsList to results box
