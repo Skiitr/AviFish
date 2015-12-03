@@ -60,7 +60,8 @@ section {
     }
   }
 
-  .bulktext {
+  .bulktext,
+  .resultsText {
     min-height: 100px;
     width: 100%;
     max-width: 100%;
@@ -70,6 +71,12 @@ section {
     padding: 0.5rem;
     font-size: $info-font-size;
     color: $info-text-color;
+  }
+
+  .resultsText {
+    padding-left: 2rem;
+    white-space: normal;
+    overflow: auto;
   }
 
 }
