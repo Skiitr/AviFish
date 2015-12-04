@@ -69,15 +69,17 @@ section {
     border-radius: 10px;
     background: $active-color;
     margin: 0.5rem 0;
-    padding: 0.5rem;
+    padding: 0.75rem;
+    font-family: $base-font-family;
     font-size: $info-font-size;
     color: $info-text-color;
+    word-break: break-all;
   }
 
   .resultsText {
     padding-left: 2rem;
     white-space: normal;
-    overflow: auto;
+    overflow: hidden;
   }
 
 }

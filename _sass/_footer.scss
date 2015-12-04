@@ -2,9 +2,17 @@
   background: $brand-color;
   height: 2.1875rem;
 
-  .copyright {
-    margin-left: 1.25rem;
+  .copyright,
+  .version {
     padding: 0.25rem 0;
     font-weight: 300;
+  }
+  .copyright {
+    margin-left: 1.25rem;
+    float: left;
+  }
+  .version {
+    margin-right: 1.25rem;
+    float: right;
   }
 }

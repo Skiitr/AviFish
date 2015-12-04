@@ -22,15 +22,15 @@ var resultsList = document.createElement("ul");
 resultsList.id = "rs-resultsList"
 
 //Depot, Option and Changelist items
-var depot = "http://aviapp.avidyne.com:8080/";
-var option = "?ac=160";
+var depot = "http://aviapp.avidyne.com:8080/"; //Default
+var option = "?ac=160"; //Default
 var changelist = "";
 
 //Toggle the depot to select
-function depotToggle(depot) {
+function depotToggle(location) {
   melbourneButton.setAttribute("class", "button");
   lincolnButton.setAttribute("class", "button");
-  depot.setAttribute("class", "button selected");
+  location.setAttribute("class", "button selected");
 }
 
 //Toggle the option to select
@@ -43,7 +43,7 @@ function optionToggle(option) {
 //Toggles for each button:
 lincolnButton.onclick = function() {
   depotToggle(lincolnButton);
-  deopt = "http://aviapp.avidyne.com:8080/";
+  depot = "http://aviapp.avidyne.com:8080/";
 };
 melbourneButton.onclick = function() {
   depotToggle(melbourneButton);
@@ -57,6 +57,8 @@ xmlOptionButton.onclick = function() {
   optionToggle(xmlOptionButton);
   option = "?ac=201";
 };
+
+//Clear Form elements
 clearClButton.onclick = function() {
   var changelistInput = document.getElementById("cl-input");
   changelistInput.value = "";
