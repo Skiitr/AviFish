@@ -7,6 +7,7 @@ var sass = require('gulp-sass')
 var prefix = require('gulp-autoprefixer')
 var cp = require('child_process')
 var rename = require('gulp-rename')
+var ghPages = require('gulp-gh-pages')
 
 // Message to print for BrowserSync
 var messages = {
@@ -53,6 +54,11 @@ gulp.task('sass', function () {
 gulp.task('watch', function () {
   gulp.watch('_sass/*.scss', ['sass'])
   gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_includes/*', '*.js'], ['jekyll-rebuild'])
+})
+
+gulp.task('deploy', function () {
+  gulp.src('./_dist/**/*')
+  .pipe(ghPages())
 })
 
 gulp.task('default', ['browser-sync', 'watch'])
