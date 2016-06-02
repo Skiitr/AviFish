@@ -99,6 +99,12 @@ $(document).ready(function () {
     window.open(xmlUrl)
   }
 
+  // create a function to remove all special charaters from the string for valid XML parse
+  function cleanInput (inputString) {
+    return inputString
+    .replace(/&/g, '&amp;')
+  }
+
   // On translate click collect data and output formatted strings
   translateButton.onclick = function () {
     // Set loop counter and linkValue
@@ -106,8 +112,10 @@ $(document).ready(function () {
     var linkValue = ''
     // Get results box item
     var resultsDiv = document.getElementById('rs-results')
+    // Clean input textarea to remove special symbols
+    var inputArea = cleanInput(document.getElementById('in-inputArea').value)
     // Grab the XML from the input and parse to XML
-    var inputXML = $.parseXML(document.getElementById('in-inputArea').value)
+    var inputXML = $.parseXML(inputArea)
     // Extract the depotfiles and changelistXML from the XML data
     var depotFiles = inputXML.getElementsByTagName('depotfile')
     var perforce = inputXML.getElementsByTagName('perforce')
